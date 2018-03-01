@@ -1,10 +1,10 @@
 #![deny(warnings)]
 
-extern crate gcc;
+extern crate cc;
 
 fn main() {
-    gcc::compile_library(
-        "libpico.a",
-        &["extern/picohttpparser/picohttpparser.c"]);
+    cc::Build::new()
+        .file("picohttpparser/picohttpparser.c")
+        .compile("libpico.a");
 }
 
