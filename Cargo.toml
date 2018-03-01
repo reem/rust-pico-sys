@@ -1,5 +1,4 @@
 [package]
-
 name = "pico-sys"
 version = "0.0.1"
 authors = ["Jonathan Reem <jonathan.reem@gmail.com>"]
@@ -7,12 +6,14 @@ repository = "https://github.com/reem/rust-pico-sys.git"
 description = "Bindings to the PicoHTTPParser."
 readme = "README.md"
 license = "MIT"
-
 build = "build.rs"
 
 [build-dependencies]
-gcc = "*"
+cc = "1.0"
 
 [dependencies]
 libc = "*"
 
+[profile.release]
+lto = true
+opt-level = 3
